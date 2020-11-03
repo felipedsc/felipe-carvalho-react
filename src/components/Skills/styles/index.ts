@@ -40,8 +40,8 @@ export const Skill = styled(BaseContainer)<SkillProps>`
 	padding: 16px 0;
 
 	@media screen and (max-width: 500px) {
-		width: 120px;
-		height: 120px;
+		width: 128px;
+		height: 128px;
 	}
 
 	& svg {
@@ -59,9 +59,8 @@ export const Skill = styled(BaseContainer)<SkillProps>`
 		& p {
 			color: ${(props) => props.hoverColors?.text || props.hoverColors?.icon || Colors.preto};
 			font-weight: 700;
-			letter-spacing: 1px;
 
-			transition: color 400ms linear, letter-spacing 300ms linear;
+			transition: color 400ms linear;
 		}
 
 		& svg {
