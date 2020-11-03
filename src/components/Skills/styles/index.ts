@@ -16,6 +16,11 @@ export const SkillsContainer = styled.div`
 	justify-content: center;
 	flex-wrap: wrap;
 	max-width: 900px;
+
+	
+	@media screen and (max-width: 500px) {
+		padding: 0px;
+	}
 `;
 
 type SkillProps = {
@@ -33,6 +38,11 @@ export const Skill = styled(BaseContainer)<SkillProps>`
 	height: 160px;
 	cursor: default;
 	padding: 16px 0;
+
+	@media screen and (max-width: 500px) {
+		width: 120px;
+		height: 120px;
+	}
 
 	& svg {
 		margin: 0 32px 16px 32px;
