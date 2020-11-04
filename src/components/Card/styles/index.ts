@@ -4,192 +4,221 @@ import { Colors } from "../../../shared/styles/Colors";
 import { StandardContainer } from "../../../shared/styles/common";
 
 export const CardContainer = styled(StandardContainer)`
-	min-height: 291px;
-	position: relative;
-	top: -100px;
-	margin-bottom: -50px;
+  min-height: 291px;
+  position: relative;
+  top: -100px;
+  margin-bottom: -50px;
 `;
 
 export const CardPhotoContainer = styled.div`
-	width: 260px;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	background-color: ${Colors.cinza2};
-	background: -moz-linear-gradient(90deg, ${Colors.cinza2} 0%, ${Colors.cinza2_1} 50%, ${Colors.cinza2} 100%);
-	background: -webkit-linear-gradient(90deg, ${Colors.cinza2} 0%, ${Colors.cinza2_1} 50%, ${Colors.cinza2} 100%);
-	background: linear-gradient(90deg, ${Colors.cinza2} 0%, ${Colors.cinza2_1} 50%, ${Colors.cinza2} 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f7fff6",endColorstr="#f7fff6",GradientType=1);
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: ${Colors.cinza2};
+  background: -moz-linear-gradient(
+    90deg,
+    ${Colors.cinza2} 0%,
+    ${Colors.cinza2_1} 50%,
+    ${Colors.cinza2} 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    ${Colors.cinza2} 0%,
+    ${Colors.cinza2_1} 50%,
+    ${Colors.cinza2} 100%
+  );
+  background: linear-gradient(
+    90deg,
+    ${Colors.cinza2} 0%,
+    ${Colors.cinza2_1} 50%,
+    ${Colors.cinza2} 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f7fff6",endColorstr="#f7fff6",GradientType=1);
 
-	@media screen and (max-width: 750px) {
-		display: none;
-	}
+  @media screen and (max-width: 750px) {
+    display: none;
+  }
 `;
 
 export const CardTitle = styled.div`
-	display: flex;
-	align-items: flex-end;
-	& * {
-		word-wrap: break-word;
-	}
+  display: flex;
+  align-items: flex-end;
+  & * {
+    word-wrap: break-word;
+  }
 `;
 
 export const CardPhoto = styled.img`
-	width: 260px;
-	position: absolute;
+  width: 260px;
+  position: absolute;
 `;
 
 export const SmallScreenCardPhoto = styled(ScrollAnimation)`
-	& img {
-		width: 150px;
-		height: 150px;
-	}
+  & img {
+    width: 150px;
+    height: 150px;
+  }
 
-	width: 100vw;
-	height: 150px;
-	text-align: center;
-	position: absolute;
-	top: 100px;
-	transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 150px;
+  text-align: center;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  right: -50%;
 
-	@media screen and (min-width: 750px) {
-		display: none;
-	}
+  @media screen and (min-width: 750px) {
+    display: none;
+  }
+
+  &.appear {
+    top: 180px;
+    /* transition: top 5s cubic-bezier(0.08, 0.92, 0.58, -0.42); */
+     transition: top 6s cubic-bezier(.87,1.12,.96,-1.3);
+	
+  }
+
+  &.hide {
+    top: 300px;
+    transition: top 300ms linear;
+  }
+
+  &.stand {
+    top: 180px;
+  }
 `;
 
 SmallScreenCardPhoto.defaultProps = {
-	animateIn: "slideInUp",
-	delay: 3000,
-	duration: 4,
-	animateOut: "slideOutDown",
+	animateIn: "fadeIn",
+	duration: 1,
 };
 
 export const SmallCardPhoto = styled.img`
-	width: 60px;
-	height: 60px;
+  width: 60px;
+  height: 60px;
 `;
 
 export const CardPhotoFooter = styled.div`
-	background-color: ${(props) => props.color};
-	color: ${Colors.cinza1};
-	width: 100%;
-	height: 40px;
+  background-color: ${(props) => props.color};
+  color: ${Colors.cinza1};
+  width: 100%;
+  height: 40px;
 `;
 
 export const CardBody = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
 `;
 
 export const CardContent = styled.div`
-	padding: 20px;
-	display: flex;
-	flex-direction: column;
-	width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 
-	& h1 {
-		font-size: 24px;
-		font-weight: 700;
-		color: ${Colors.laranja2};
+  & h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: ${Colors.laranja2};
 
-		& span {
-			color: #dedede;
-			font-size: 12px;
-			font-weight: 600;
+    & span {
+      color: #dedede;
+      font-size: 12px;
+      font-weight: 600;
 
-			@media screen and (max-width: 500px) {
-				display: none;
-			}
-		}
-	}
+      @media screen and (max-width: 500px) {
+        display: none;
+      }
+    }
+  }
 
-	& h2 {
-		font-size: 16px;
-		font-weight: 600;
-	}
+  & h2 {
+    font-size: 16px;
+    font-weight: 600;
+  }
 
-	& .hr {
-		margin: 16px 20px;
-		border-bottom: 1px solid #dedede;
-	}
+  & .hr {
+    margin: 16px 20px;
+    border-bottom: 1px solid #dedede;
+  }
 
-	& ul {
-		list-style-type: none;
-		font-size: 14px;
-		font-weight: 500;
+  & ul {
+    list-style-type: none;
+    font-size: 14px;
+    font-weight: 500;
 
-		line-height: 32px;
+    line-height: 32px;
 
-		& li,
-		a {
-			display: flex;
+    & li,
+    a {
+      display: flex;
 
-			& svg {
-				align-self: center;
-				font-weight: 700;
-				font-size: 18px;
-				margin-right: 8px;
-			}
-		}
+      & svg {
+        align-self: center;
+        font-weight: 700;
+        font-size: 18px;
+        margin-right: 8px;
+      }
+    }
 
-		& a {
-			text-decoration: none;
+    & a {
+      text-decoration: none;
 
-			transition: all 300ms linear;
+      transition: all 300ms linear;
 
-			&:visited {
-				color: inherit;
-			}
+      &:visited {
+        color: ${Colors.azul};
+      }
 
-			&:hover {
-				color: ${Colors.preto};
-				transform: scale(1.2);
-			}
+      &:hover {
+        color: ${Colors.preto};
+        transform: scale(1.2);
+      }
 
-			&:active {
-				color: ${Colors.laranja2};
-			}
-		}
-	}
+      &:active {
+        color: ${Colors.laranja2};
+      }
+    }
+  }
 `;
 
 export const CardFooter = styled.div`
-	display: flex;
-	background-color: ${(props) => props.color};
-	color: ${Colors.cinza1};
-	width: 100%;
-	height: 40px;
-	align-items: center;
-	justify-content: flex-end;
+  display: flex;
+  background-color: ${(props) => props.color};
+  color: ${Colors.cinza1};
+  width: 100%;
+  height: 40px;
+  align-items: center;
+  justify-content: flex-end;
 
-	& a {
-		height: 100%;
-		width: 50px;
-		color: ${Colors.cinza1};
+  & a {
+    height: 100%;
+    width: 50px;
+    color: ${Colors.cinza1};
 
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		transition: background-color 300ms linear;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 300ms linear;
 
-		& svg {
-			font-size: 24px;
+    & svg {
+      font-size: 24px;
 
-			transition: all 300ms linear;
-		}
+      transition: all 300ms linear;
+    }
 
-		&:hover {
-			background-color: ${Colors.cinza3_1};
+    &:hover {
+      background-color: ${Colors.cinza3_1};
 
-			& svg {
-				transform: scale(1.3);
-			}
-		}
+      & svg {
+        transform: scale(1.3);
+      }
+    }
 
-		&:active {
-			color: ${Colors.azul};
-		}
-	}
+    &:active {
+      color: ${Colors.azul};
+    }
+  }
 `;

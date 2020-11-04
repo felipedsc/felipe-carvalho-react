@@ -23,7 +23,7 @@ function getRandomImageIndex(currentIndex: number) {
 }
 
 export const Landing = () => {
-	const [topImageIndex, setTopImageIndex] = useState(getRandomImageIndex(0));
+	const [topImageIndex, setTopImageIndex] = useState(getRandomImageIndex(5));
 
 	return (
 		<S.Layout>
@@ -31,7 +31,7 @@ export const Landing = () => {
 				color={Colors.cinza2}
 				image={images[topImageIndex]}
 				onClick={() => {
-					setTopImageIndex(() => getRandomImageIndex(topImageIndex));
+					setTopImageIndex((currentIndex) => getRandomImageIndex(currentIndex));
 				}}
 			/>
 
