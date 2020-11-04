@@ -1,3 +1,4 @@
+import ScrollAnimation from "react-animate-on-scroll";
 import styled from "styled-components";
 import { Colors } from "../../../shared/styles/Colors";
 import { StandardContainer } from "../../../shared/styles/common";
@@ -53,7 +54,7 @@ export const CardPhoto = styled.img`
   position: absolute;
 `;
 
-export const SmallScreenCardPhoto = styled.div`
+export const SmallScreenCardPhoto = styled(ScrollAnimation)`
   & img {
     width: 150px;
     height: 150px;
@@ -72,18 +73,25 @@ export const SmallScreenCardPhoto = styled.div`
 
   &.appear {
     top: 180px;
-    transition: top 6s cubic-bezier(0.08, 0.92, 0.98, -0.67);
+    /* transition: top 5s cubic-bezier(0.08, 0.92, 0.58, -0.42); */
+     transition: top 6s cubic-bezier(.87,1.12,.96,-1.3);
+	
   }
 
   &.hide {
     top: 300px;
-    transition: top 400ms linear;
+    transition: top 300ms linear;
   }
 
   &.stand {
     top: 180px;
   }
 `;
+
+SmallScreenCardPhoto.defaultProps = {
+	animateIn: "fadeIn",
+	duration: 1,
+};
 
 export const SmallCardPhoto = styled.img`
   width: 60px;
@@ -161,7 +169,7 @@ export const CardContent = styled.div`
       transition: all 300ms linear;
 
       &:visited {
-        color: ${Colors.cinza3};
+        color: ${Colors.azul};
       }
 
       &:hover {

@@ -23,7 +23,7 @@ let animationTimeout: number;
 export const Card = () => {
   const [animationClass, setAnimationClass] = useState(ANIMATION_CLASSES.STAND);
 
-  function sneaky(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+  function ouch() {
     setAnimationClass(ANIMATION_CLASSES.HIDE);
 
     if (animationTimeout) clearTimeout(animationTimeout);
@@ -35,7 +35,7 @@ export const Card = () => {
   return (
     <>
       <S.SmallScreenCardPhoto className={animationClass}>
-        <img src={profile} alt="Este sou eu" onClick={(e) => sneaky(e)} />
+        <img src={profile} alt="Este sou eu" onClick={ouch} />
       </S.SmallScreenCardPhoto>
       <S.CardContainer color={Colors.branco}>
         <S.CardPhotoContainer>
