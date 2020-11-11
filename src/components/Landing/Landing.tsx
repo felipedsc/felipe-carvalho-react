@@ -29,21 +29,25 @@ export const Landing = () => {
 
   return (
     <S.Layout>
-      <S.Top
-        color={Colors.cinza2}
-        image={images[topImageIndex]}
-        onClick={() => {
-          if (topImageChangeTimeout) {
-            clearTimeout(topImageChangeTimeout);
-		  }
-		  
-          topImageChangeTimeout = setTimeout(() => {
-            setTopImageIndex((currentIndex) =>
-              getRandomImageIndex(currentIndex)
-            );
-          }, 400);
-        }}
-      />
+      {images.map((image, imageIndex) => (
+        <S.Top
+          key={imageIndex}
+          color={Colors.cinza2}
+          image={image}
+          style={{
+            display: topImageIndex === imageIndex ? "" : "none",
+          }}
+          onClick={() => {
+            if (topImageChangeTimeout) clearTimeout(topImageChangeTimeout);
+
+            topImageChangeTimeout = setTimeout(() => {
+              setTopImageIndex((currentIndex) =>
+                getRandomImageIndex(currentIndex)
+              );
+            }, 300);
+          }}
+        />
+      ))}
 
       <Card />
 
