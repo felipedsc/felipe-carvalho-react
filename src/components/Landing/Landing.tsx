@@ -13,39 +13,49 @@ import * as S from "./styles";
 const images = [background1, background2, background3, background4];
 
 function getRandomImageIndex(currentIndex: number) {
-	let randomImageIndex = currentIndex;
+  let randomImageIndex = currentIndex;
 
-	do {
-		randomImageIndex = Math.floor(Math.random() * images.length);
-	} while (randomImageIndex === currentIndex);
+  do {
+    randomImageIndex = Math.floor(Math.random() * images.length);
+  } while (randomImageIndex === currentIndex);
 
-	return randomImageIndex;
+  return randomImageIndex;
 }
 
+let topImageChangeTimeout: number;
+
 export const Landing = () => {
-	const [topImageIndex, setTopImageIndex] = useState(getRandomImageIndex(5));
+  const [topImageIndex, setTopImageIndex] = useState(getRandomImageIndex(5));
 
-	return (
-		<S.Layout>
-			<S.Top
-				color={Colors.cinza2}
-				image={images[topImageIndex]}
-				onClick={() => {
-					setTopImageIndex((currentIndex) => getRandomImageIndex(currentIndex));
-				}}
-			/>
+  return (
+    <S.Layout>
+      <S.Top
+        color={Colors.cinza2}
+        image={images[topImageIndex]}
+        onClick={() => {
+          if (topImageChangeTimeout) {
+            clearTimeout(topImageChangeTimeout);
+		  }
+		  
+          topImageChangeTimeout = setTimeout(() => {
+            setTopImageIndex((currentIndex) =>
+              getRandomImageIndex(currentIndex)
+            );
+          }, 400);
+        }}
+      />
 
-			<Card />
+      <Card />
 
-			<S.Animation>
-				<About />
-			</S.Animation>
+      <S.Animation>
+        <About />
+      </S.Animation>
 
-			<S.Animation>
-				<Skills />
-			</S.Animation>
+      <S.Animation>
+        <Skills />
+      </S.Animation>
 
-			<Timeline />
-		</S.Layout>
-	);
+      <Timeline />
+    </S.Layout>
+  );
 };
