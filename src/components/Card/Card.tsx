@@ -18,7 +18,7 @@ const ANIMATION_CLASSES = {
   STAND: "stand",
 };
 
-let animationTimeout: number;
+let animationTimeout: ReturnType<typeof setTimeout>;
 
 export const Card = () => {
   const [animationClass, setAnimationClass] = useState(ANIMATION_CLASSES.STAND);
