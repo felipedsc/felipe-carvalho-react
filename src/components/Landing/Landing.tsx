@@ -22,7 +22,7 @@ function getRandomImageIndex(currentIndex: number) {
   return randomImageIndex;
 }
 
-let topImageChangeTimeout: number;
+let topImageChangeTimeout: ReturnType<typeof setTimeout>;
 
 export const Landing = () => {
   const [topImageIndex, setTopImageIndex] = useState(getRandomImageIndex(5));
